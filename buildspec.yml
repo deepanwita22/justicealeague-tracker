@@ -1,15 +1,12 @@
 version: 0.2
 
-env:
-  variables:
-    JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
-
 phases:
   install:
+    runtime-versions:
+      java: corretto11
+  pre_build:
     commands:
-    - echo installing maven...
-    - apt-get update -y
-    - apt-get install -y maven
+    - echo Nothing to do in pre_build phase...
   build:
     commands:
     - echo building the justiceleague-tracker
@@ -21,6 +18,3 @@ artifacts:
   - appspec.yml
   discard-paths: yes
 
-cache:
-  paths:
-  - '/root/.m2/**/*'
